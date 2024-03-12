@@ -1,48 +1,72 @@
-[gd_scene format=3 uid="uid://dsm2m3srdfv00"]
+[gd_scene load_steps=2 format=3 uid="uid://dsm2m3srdfv00"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" path="res://addons/webview/main.gd" id="1_c1gww"]
+
+[node name="WebView" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c1gww")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="Back" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Back"
+tooltip_text = "Back"
+text = "←"
 
 [node name="Forward" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Forward"
+tooltip_text = "Forward"
+text = "→"
 
 [node name="Reload" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Reload"
+tooltip_text = "Reload"
+text = "↻"
 
 [node name="Home" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Home
+tooltip_text = "Home"
+text = "⌂
 "
 
 [node name="Address" type="TextEdit" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "https://getbootstrap.com/docs/5.3.examples/starter-template/"
+text = "https://getbootstrap.com/docs/5.3/examples/starter-template/"
+scroll_fit_content_height = true
 
 [node name="Submit" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Submit
+tooltip_text = "Submit"
+text = "⏎
 "
 
 [node name="Options" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Options
-"
+tooltip_text = "Options"
+text = "☰"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+editable = false
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HBoxContainer/Forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="HBoxContainer/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="HBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="HBoxContainer/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
