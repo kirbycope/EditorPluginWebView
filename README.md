@@ -1,2 +1,2 @@
-# webview-plugin-godot
-A WebView plugin for the Godot Editor.
+# EditorPluginWebView
+A WebView for the Godot EditorPlugin.
