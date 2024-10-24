@@ -14,3 +14,8 @@ A WebView using the Godot EditorPlugin class.
 1. Check the "Enable" box
 1. Select "Close"
 1. In the toolbar, select "🌐 WebView"
+
+## Other examples
+- https://github.com/doceazedo/godot_wry - WebView Rendering Library for Godot
+- https://github.com/Lecrapouille/gdcef - Chromium Embedded Framework Webview for Godot
+- https://godotwebview.com/ - The HTML rendering engine for Godot
